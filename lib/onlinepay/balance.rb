@@ -1,7 +1,7 @@
 module Onlinepay
   class Balance < APIResource
 
-    def lists(currency)
+    def self.lists(currency)
       # GET '/api/v1/balance'
       params = { params: {currency: currency}, Authorization: bearer_authorize }
       response = RestClient.get("#{Onlinepay.api_base}/api/v1/balance", params)

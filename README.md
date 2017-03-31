@@ -34,11 +34,13 @@ payment = Onlinepay::Payments.new("Car",50,"CNY")
 payment.amount #=> 50
 payment.currency #=> CNY
 payment.processingUrl #=> https:\\...
+payment.token #=> payment_token
 payment.show #=> The payment detail Hash object {...}
 
 
 # show all payments with given params
-Onlinepay::Payments.lists(date_from: "2017-01-01", date_to: "2017-03-01", page: 2, per_page: 50) #=> All payments Hash object {...}
+Onlinepay::Payments.lists(date_from: "2017-01-01", date_to: "2017-03-01", page: 2, per_page: 50) 
+#=> All payments Hash object {...}
 
 ```
 ## Development
