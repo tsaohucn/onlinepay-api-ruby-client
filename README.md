@@ -18,7 +18,7 @@ Or install it yourself as:
 
     $ gem install onlinepay-api-ruby-client
 Then
-    `require: 'onlinepay'` in your ruby script file
+    `require "stripe"` in your ruby script file
 
 ## Usage
 The library needs to be configured with your account's secret key which is available in [Backoffice](https://core.onlinepay.com/office/auth/login)
