@@ -28,17 +28,18 @@ require "stripe"
 Onlinepay.api_key = "api_key"
 
 # create a new payment and return a payment object
-payment = Onlinepay::Payments.new("車子",50,"CNY")
+payment = Onlinepay::Payments.new("Car",50,"CNY")
 
 # show detail of the payment
 payment.amount #=> 50
 payment.currency #=> CNY
 payment.processingUrl #=> https:\\...
-payment.show # {...}
+payment.show #=> The payment detail Hash object {...}
 
 
 # show all payments with given params
-Onlinepay::Payments.lists(date_from: "2017-01-01", date_to: "2017-03-01", page: 2, per_page: 50)
+Onlinepay::Payments.lists(date_from: "2017-01-01", date_to: "2017-03-01", page: 2, per_page: 50) #=> All payments Hash object {...}
+
 ```
 ## Development
 
