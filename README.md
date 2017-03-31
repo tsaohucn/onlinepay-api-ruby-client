@@ -1,15 +1,13 @@
-# Onlinepay::Api::Ruby::Client
+# Onlinepay-Api-Ruby-Client
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/onlinepay/api/ruby/client`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
+Welcome to visit the gem! 
+The gem is a ruby wrapper about [onlinepay API](https://business.onlinepay.com/docs/?python#introduction)
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'onlinepay-api-ruby-client'
+gem 'onlinepay-api-ruby-client', require: 'onlinepay'
 ```
 
 And then execute:
@@ -19,11 +17,29 @@ And then execute:
 Or install it yourself as:
 
     $ gem install onlinepay-api-ruby-client
+Then
+    `require: 'onlinepay'` in your ruby script file
 
 ## Usage
+The library needs to be configured with your account's secret key which is available in [Backoffice](https://core.onlinepay.com/office/auth/login)
 
-TODO: Write usage instructions here
+``` ruby
+require "stripe"
+Onlinepay.api_key = "api_key"
 
+# create a new payment and return a payment object
+payment = Onlinepay::Payments.new("車子",50,"CNY")
+
+# show detail of the payment
+payment.amount #=> 50
+payment.currency #=> CNY
+payment.processingUrl #=> https:\\...
+payment.show # {...}
+
+
+# show all payments with given params
+Onlinepay::Payments.lists(date_from: "2017-01-01", date_to: "2017-03-01", page: 2, per_page: 50)
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
